@@ -1,0 +1,68 @@
+== Reglas Generales
+=== Codificado
+Usar siempre codificado **UTF-8**.
+
+Asegúrate que tu editor siempre utilize codificado en UTF-8.
+
+Especifica el codificado en los archivos HTML con la etiqueta `<meta charset="utf-8">`.
+
+NOTE: Para las hojas de estilo no es necesario definir el codificado (siempre se asume como UTF-8).
+
+=== Atributo de Lenguaje
+Es necesario definir el lenguaje de la página en el elemento `html`.
+
+Ésto ayuda a los sintetizadores de voz para determinar que pronunciación usar y que reglas usar para las herramientas de traducción. Más información sobre `lang` en la http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element[especificación].
+
+[source,html]
+----
+<html lang="es-mx">
+  <!-- ... -->
+</html>
+----
+
+=== Modo de Compatibilidad de IE
+Siempre usar el último modo soportado por Internet Explorer.
+
+Internet Explorer soporta un _meta_ para especificar que versión de Internet Explorer usar. A menos de que la situación lo pida, siempre utilizar el último modo `edge mode`.
+
+[source,html]
+----
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+----
+
+=== Comentarios
+Explica el código siempre que sea necesario.
+
+Usa comentarios para explicar código, intenta contestando una de las siguientes preguntas:
+
+* ¿Qué es lo que resuelve?
+* ¿Qué proposito tiene?
+* ¿Por qué se usa esa solución?
+* ¿Por qué es mejor ésta implementación que otras?
+
+Separa siempre, con un espacio en blanco, el código de marcado del comentario: `<!--_Comentario -->`, `/*_Comentario */`, `//_Comentario`, `#_Comentario`
+
+TIP: No es necesario que documentes todo el código. Documenta aquellas cosas que tuviste que investigar, implementaciones poco convencionales, código que aparentemente no tiene sentido o referencias a estándares, sitios o foros de discusión.
+
+=== Líneas en blanco
+No uses líneas en blanco en exceso.
+
+Nunca uses mas de una línea en blanco. Antes de crear líneas en blanco pregúntate ¿Por qué estoy separando esto? La recomendación para usar líneas en blanco es en una de éstas situaciones:
+
+* Agrupar secciones lógicas
+* Separar bloques o secciones
+* Antes de un comentario
+* Para terminar un archivo
+
+=== Tareas Pendientes
+Marca las tareas pendientes con **TODO**
+
+Usa paréntesis para agregar un correo, nombre o nombre de usuario de quien hará la tarea: `TODO(ricardo@mobiz.mx)`
+
+Define la tarea después de dos puntos y espacio `TODO: Tarea pendiente`
+
+[source,html]
+----
+<!-- TODO(ricardo): Conectar con API -->
+<div>{{item}}</div>
+----

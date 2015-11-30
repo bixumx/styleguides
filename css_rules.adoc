@@ -1,0 +1,199 @@
+== Reglas de CSS
+=== Usa CSS válido
+Siempre que se pueda, usar CSS válido.
+
+Además de que un css válido es una forma de medir la calidad, nos permite detectar código que no hace ningún efecto y puede ser removido.
+
+=== Nombre a Identificadores y Clases
+Usa nombres de clase o identificadores que tengan significado ó que representen grupos.
+
+No uses nombres raros, sin sentido o que tengan que ver con la forma en que se presentan. Siempre utiliza nombres de clases o ID's que digan el propósito del elemento o el grupo en cuestión.
+
+Los nombres específicos (que indican el propósito) de dicho elemento son preferibles a aquellos que no lo hacen, ya que son mas propensos al cambio.
+
+TIP: Los nombres de grupo o _clases auxiliares_ son una forma de agrupar todos aquellos elementos que no tienen un significado especial o diferente de sus _hermanos_.
+
+.No Recomendado
+[source,css]
+----
+/* No recomendado: Sin sentido */
+#sii-1901 {}
+
+/* No recomendado: De presentación */
+.button-green {}
+.clear {}
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado: Específico */
+#galeria {}
+#login {}
+.video {}
+
+/* Recomendado: Grupos */
+.aux {}
+.alt {}
+----
+
+=== Nombres de Clases e IDs
+Utiliza nombre de clase ó IDs tan cortos como sea posible pero tan largos como sea necesario.
+
+Trata de decir de lo que trata un ID ó clase siendo lo más breve posible.
+
+TIP: Usando ésta convención deja el código entendible y eficiente.
+
+.No Recomendado
+[source,css]
+----
+/* No recomendado */
+#navigation {}
+.atr {}
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+#nav {}
+.author {}
+----
+
+=== Selectores de Tipo
+Evita usar clases ó ID's mezclados con selectores de tipo.
+
+No mezcles nombres de clase ó ID's con selectores de tipo a menos que sea necesario (como en las clases auxiliares).
+
+TIP: Evitando mezclar selectores de tipo con clases ó IDs mejoramos el desempeño del sitio.
+
+.No Recomendado
+[source,css]
+----
+/* No recomendado */
+ul#example {}
+div.error {}
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+#example {}
+.error {}
+----
+
+=== Propiedades Abreviadas
+Usa las propiedades abreviadas siempre que sea posible.
+
+CSS tiene una serie de http://www.w3.org/TR/CSS21/about.html#shorthand[propiedades que puedes abreviar] (como `font`) que deberían usarse siempre que sea posible, incluso en casos donde solo un valor está explícitamente declarado.
+
+TIP: Usando propiedades abreviadas hace eficiente el código y fácil de leer.
+
+.No Recomendado
+[source,css]
+----
+/* No recomendado */
+border-top-style: none;
+font-family: palatino, georgia, serif;
+font-size: 100%;
+line-height: 1.6;
+padding-bottom: 2em;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 0;
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+border-top: 0;
+font: 100%/1.6 palatino, georgia, serif;
+padding: 0 1em 2em;
+----
+
+=== Unidades y 0
+Omite la especificación de unidades después del `0`.
+
+.No Recomendado
+[source,css]
+----
+/* No recomendado */
+margin: 0em;
+padding: 0px;
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+margin: 0;
+padding: 0;
+----
+
+=== Ceros en Fracciones
+Omite los `0` en las fracciones (como en 0.7).
+
+No utilizes `0` para valores entre -1 y 1.
+
+[source,css]
+----
+font-size: .8em;
+----
+
+=== Notación Hexadecimal
+Usa la notación de 3 caracteres hexadecimales cuando sea posible.
+
+Para valores de color que lo permitan, la notación de 3 valores hexadecimales es corta y concisa.
+
+.No Recomendado
+[source,css]
+----
+color: #aabbcc;
+----
+
+.Recomendado
+[source,css]
+----
+color: #abc;
+----
+
+=== Prefijos
+Precede los nombres de grupos y ID's con un prefijo específico de la aplicación (opcional).
+
+En proyectos grandes y con código que se rehusa de/en otros proyectos o sitios externos, usa prefijos.
+
+Usa prefijos cortos y únicos seguidos de un guión medio.
+
+TIP: Usar prefijos ayuda a prevenir los conflictos en los nombres de grupos e ID's además de hacer el mantenimiento mas fácil.
+
+.Recomendado
+[source,css]
+----
+.mbz-button {} /* Mobiz */
+.cac-button {} /* Cacoa */
+----
+
+=== Delimitadores de Nombre en Clases y ID's
+Separa las palabras en ID's y clases con un guión medio.
+
+No concatenar palabras y abreviaciones en selectores con ningún caracter (incluyendo ninguna separación) a excepción del guión medio. Ésto ayuda al escaneo y comprensión del código.
+
+.No Recomendado
+[source,css]
+----
+/* No Recomendado: No se separan las palabras "demo" e "image" */
+.demoimage {}
+
+/* No Recomendado: Usar guión bajo en lugar de guión medio */
+.error_status {}
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+#video-id {}
+.ads-sample {}
+----

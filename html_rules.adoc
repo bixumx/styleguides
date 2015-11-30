@@ -1,0 +1,195 @@
+== Reglas de HTML
+=== HTML5
+Usa HTML5.
+
+Se recomienda usar HTML5 en lugar de XHTML en todos los archivos `<!DOCTYPE html>`.
+
+En HTML5 los elementos vacios no deben cerrarse, por ejemplo: usar `<br>` no `<br />`.
+
+=== Usar HTML válido
+Usa siempre que sea posible HTML válido.
+
+Ésto quiere decir que todos los elementos/etiquetas que se usen, a excepción de las vacias, deben tener etiqueta de cierre.
+
+Puedes usar herramientas en línea para probar el html, tales como el http://validator.w3.org/nu/[Validador de la W3C]
+
+.No Válido
+[source,html]
+----
+<article>
+  <p>Y los pájaros volaban</p>
+----
+
+.Válido
+[source,html]
+----
+<article>
+  <p>Y los pájaros volaban</p>
+</article>
+----
+
+=== Semántica
+Usa código HTML de acuerdo a su propósito.
+
+Usa los elementos (o etiquetas) para aquello por lo que fueron creadas. Por ejemplo, usa elementos de encabezado para encabezados, elementos `p` para párrafos, elementos `a` para enlaces, etc.
+
+Usar los elementos adecuados de acuerdo a su propósito es importante para la accesibilidad, reutilizar código y por cuestiones de eficiencia.
+
+.No Recomendable
+[source,html]
+----
+<div onclick="gotoHome()">Ir a inicio</div>
+<span onclick="submit()">Enviar</span>
+----
+
+.Recomendable
+[source,html]
+----
+<a href="/">Ir a inicio</a>
+<button type="submit">Enviar</button>
+----
+
+=== Alternativas Múltimedia
+Ofrecer contenidos alternativos en contenidos multimedia.
+
+Para contenidos multimedia, tales como: _imágenes, audio, video y animaciones (con `canvas`)_ asegúrate de ofrecer contenidos alternativos.
+
+En imágenes, esto quiere decir que siempre utilices el atributo `alt` y para `audio` o `video` uses transcripciones o subtítulos.
+
+Ofrecer contenido alternativo es importante por motivos de accesibilidad. Un usuario ciego no sabe de que trata una imágen si no se incluye el atributo `alt` y otros usuarios tampoco sabrían de que se trata un audio o video.
+
+.No Recomendable
+[source,html]
+----
+<img src="//club.mobiz.mx/logo.svg">
+----
+
+.Recomendable
+[source,html]
+----
+<img src="//club.mobiz.mx/logo.svg" alt="Logotipo de Mobiz">
+----
+
+=== Separar por Intereses
+Separar la estructura de la presentación y el comportamiento.
+
+Mantén separada de manera estricta, la estructura (html) de la presentación (css) y el comportamiento (scripting). La interacción entre ellos debe ser mínima también.
+
+Asegurate que los _templates_ y documentos solo contengan HTML y que ese HTML solo sirva de estructura. Mueve toda la presentación a hojas de estilo y todo el comportamiento a _scripts_.
+
+Mantén la interacción al mínimo, liga en los documentos (HTML) tan pocas hojas de estilo y _scripts_ como sea posible (esto puede llevarse a cabo por _scripts_ de automatización).
+
+TIP: Separar la estructura, presentación y comportamiento es importante por motivos de mantenimiento.
+
+=== Entidades HTML
+No usar entidades HTML.
+
+No hay necesidad de usar entidades HTML como `&ntilde;`, `&aacute;` ó `&#xa9;`, asumiendo que la misma codificación (UTF-8) es usada por los miembros del equipo en archivos y editores.
+
+Las únicas excepciones se aplican a caracteres que tienen un significado especial en HTML (como `<` y `&`) además de caracteres invisibles o de control.
+
+.No Recomendable
+[source,html]
+----
+<p>Las ni&ntilde;as comer&aacute;n en Sanborns&#xa9;
+----
+
+.Recomendable
+[source,html]
+----
+<p>Las niñas comerán en Sanborns©
+----
+
+=== Etiquetas Opcionales
+Omite el uso de etiquetas opcionales.
+
+Para optimizar el tamaño y el escaneo de archivos, considera omitir el cierre de etiquetas opcionales. La http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission[Especificación de HTML5] define que etiquetas de cierre pueden ser omitidas.
+
+WARNING: Es necesario definir un periodo de gracia antes de implementar éste cambio, ya que algunos navegadores viejos, no terminan por implementar ésta característica.
+
+.No Recomendable
+[source,html]
+----
+<!-- No Recomendado -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Se gasta dinero gastando bytes</title>
+  </head>
+  <body>
+    <p>Y murió.</p>
+  </body>
+</html>
+----
+
+.Recomendable
+[source,html]
+----
+<!-- Recomendado -->
+<!DOCTYPE html>
+<title>Se gasta dinero gastando bytes</title>
+<p>Y murió.
+----
+
+=== Atributo Type
+Omite el atributo `type` para hojas de estilo y _scripts_
+
+No uses el atributo `type` en hojas de estilo (a menos de que no uses css) y _scripts_ (a menos de que no uses javascript).
+
+Usar éstos atributos no es necesario en HTML5, ya que define a `text/css` y `text/javascripts` como _defaults_. Ésto es aplicable incluso para navegadores viejos.
+
+.No Recomendable
+[source,css]
+----
+<!-- No Recomendable -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+----
+
+.Recomendable
+[source,html]
+----
+<!-- Recomendable -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+----
+
+=== Orden de los Atributos
+Los atributos de elementos HTML deben llevar orden.
+
+Para facilitar la lectura del código HTML los atributos de los elementos deben llevar orden.
+
+* `class`
+* `id`, `name`
+* `data-*`
+* `src`, `for`, `type`, `href`, `value`
+* `title`, `alt`
+* `aria-*`, `role`
+
+Las clases son útiles para crear elementos reusables, así que vienen primero. Los _ids_ son muy específicos y deberían usarse pocas veces (p.e. marcadores en la página), por eso vienen segundo.
+
+=== Reglas Generales de Formato
+Usar una nueva línea por cada elemento de bloque (como `div` o `p`), lista o tabla; además aplica indentación por cada hijo.
+
+Independientemente del estilo que se le aplique al elemento, pon cada elemento de bloque, lista o tabla en una nueva línea.
+
+Además, agrega indentación (de cuatro espacios) por cada hijo de los elementos (tabla, lista o bloque).
+
+TIP: Haciendo esto es más fácil leer y manetener el código.
+
+=== Comillas en HTML
+Usar comillas dobles en los atributos de los elementos.
+
+Usa siempre comillas dobles `"` en lugar de simples `'` alrededor de los valores de un atributo.
+
+.No Recomendable
+[source,css]
+----
+<!-- No Recomendable -->
+<p class='parrafo'> Y lloró
+----
+
+.Recomendable
+[source,html]
+----
+<!-- Recomendable -->
+<p class="parrafo"> Y lloró
+----

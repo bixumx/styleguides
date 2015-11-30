@@ -1,0 +1,39 @@
+== Estilo de Programación HTML
+=== Protocolo
+Omitir el protocolo (`http:`, `https:`) en los enlaces a recursos como: _imágenes, hojas de estilo, scripts o archivos multimedia_, siempre y cuando estén disponibles en ambos protocolos (los CDN están disponibles en ambos protocolos).
+
+TIP: Omitiendo el protocolo, evitamos problemas con los certificados de seguridad, principalmente alertas del tipo "contenido mixto", además, reduce un poco el tamaño de los archivos.
+
+.No Recomendado
+[source,html]
+----
+<!-- No Se Recomienda -->
+<script src="http://www.google.com/js/gweb/analytics/autotrack.js"></script>
+----
+
+.Recomendado
+[source,html]
+----
+<!-- Recomendado -->
+<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+----
+
+.No Recomendado
+[source,css]
+----
+/* No Recomendado */
+.ejemplo {
+  background: url(http://club.mobiz.mx/logo.svg);
+}
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+.ejemplo {
+  background: url(//club.mobiz.mx/logo.svg);
+}
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+----

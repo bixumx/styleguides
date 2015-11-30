@@ -1,0 +1,228 @@
+== Reglas de Formato CSS
+=== Orden de Declaración
+Agrupa y ordena alfabéticamente las declaraciones.
+
+Agrupa las declaraciones relacionadas en los siguientes grupos:
+
+* Posicionamiento
+* Tipo de recuadro
+* Tipografía
+* Visual
+* Misceláneo
+
+Dentro de los grupos las declaraciones de reglas deberán estar en orden alfabético para lograr código mantenible, fácil de leer y recordar.
+
+Ignora los prefijos específicos de navegador cuando ordenes. De cualquier manera, cuando uses varios prefijos, ordénalos alfabéticamente también (p.e. el prefijo `-moz-` va antes de `-webkit-`).
+
+[source,css]
+----
+.orden-declaracion {
+  /* Posicionamiento */
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+  /* Tipo de recuadro */
+  display: block;
+  float: right;
+  height: 100px;
+  width: 100px;
+
+  /* Tipografía */
+  color: #333;
+  font: normal 13px "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  text-align: center;
+
+  /* Visual */
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 3px;
+
+  /* Misc */
+  opacity: 1;
+}
+----
+
+=== Indentación de Bloques
+Indenta todos los bloques.
+
+Todos los bloques deberán estar indentados, eso aplica para reglas y declaraciones; con esto se refleja jerarquía y es más fácil de leer.
+
+[source,css]
+----
+@media screen, projection {
+  html {
+    background: #fff;
+    color: #444;
+  }
+}
+----
+
+=== Terminar Declaraciones
+Utiliza un punto y coma `;` después de cada declaración.
+
+.No Recomendado
+[source,css]
+----
+.test {
+  display: block;
+  height: 100px
+}
+----
+
+.Recomendado
+[source,css]
+----
+.test {
+  display: block;
+  height: 100px;
+}
+----
+
+=== Terminar Nombre de Propiedades
+Utiliza un espacio después de definir el nombre de la propiedad y los dos puntos `:`.
+
+Siempre usa un espacio después de hacer una declaración del nombre de una propiedad (pero sin espacio entre el nombre y los dos puntos).
+
+.No Recomendado
+[source,css]
+----
+h3 {
+  font-weight:bold;
+}
+----
+
+.Recomendado
+[source,css]
+----
+h3 {
+  font-weight: bold;
+}
+----
+
+=== Separación de Bloques
+Usa un espacio entre el último selector y el inicio de la declaración del bloque.
+
+Siempre usa un espacio entre el último selector y la llave de apertura de declaración del bloque.
+
+Además la llave de apertura debe estar en la misma línea que el último selector.
+
+.No Recomendado
+[source,css]
+----
+/* No recomendado: Falta un espacio */
+#video{
+  margin-top: 1em;
+}
+
+/* No recomendado: Salto de línea no necesario */
+#video
+{
+  margin-top: 1em;
+}
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+#video {
+  margin-top: 1em;
+}
+----
+
+=== Separación de Selectores y Declaraciones
+Separa los selectores y las declaraciones en una nueva línea.
+
+Siempre inicia en una nueva línea las declaraciones y los selectores.
+
+.No Recomendado
+[source,css]
+----
+/* No Recomendado */
+a:focus, a:active {
+  position: relative; top: 1px;
+}
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+----
+
+==== Separación de Reglas
+Siempre separa las declaraciones de las reglas con una y solo una línea en blanco.
+
+[source,css]
+----
+html {
+  background: #fff;
+}
+
+body {
+  margin: auto;
+  width: 50%;
+}
+----
+
+==== Comillas en CSS
+Usa comillas simples `'` para los selectores de atributos y valores.
+
+Es preferible usar comillas simples `'` a comillas dobles `"` en los selectores o en los valores. Para las URL's `url()` no usar comillas.
+
+.No Recomendado
+[source,css]
+----
+/* No Recomendado */
+@import url("//www.google.com/css/maia.css");
+
+html {
+  font-family: "open sans", arial, sans-serif;
+}
+----
+
+.Recomendado
+[source,css]
+----
+/* Recomendado */
+@import url(//www.google.com/css/maia.css);
+
+html {
+  font-family: 'open sans', arial, sans-serif;
+}
+----
+
+==== Comentarios en las Secciones
+Divide las secciones con un comentario.
+
+De ser posible, agrupa las secciones de una hoja de estilo usando comentarios.
+
+Separa las secciones con una línea en blanco.
+
+[source,css]
+----
+/* Header */
+
+#mbz-header {}
+
+/* Footer */
+
+#mbz-footer {}
+
+/* Galería */
+
+.mbz-gallery {}
+----

@@ -1,0 +1,69 @@
+== Formato HTML
+=== Indentado
+Usar 4 espacios siempre para indentar (sangría). No usar _tabs_, o una combinación de _tabs_ y espacios para indentar.
+
+----
+<ul>
+    <li>Productos</li>
+    <li>Servicios</li>
+</ul>
+
+.ejemplo {
+    color: orange;
+    background: white;
+}
+----
+
+=== Mayúsculas
+Nunca usar mayúsculas en los elementos.
+
+Ésto aplica para todos los elementos HTML (atributos y valores), selectores CSS, propiedades y valores de propiedades (exceptuando aquellos valores en texto).
+
+.Mala Práctica
+[source,html]
+----
+<!-- Mala Práctica -->
+<A HREF="/"> Inicio </A>
+----
+
+.Buena Práctica
+[source,html]
+----
+<!-- Buena Práctica -->
+<a href="/"> Inicio </a>
+----
+
+.Mala Práctica
+[source,css]
+----
+/* Mala Práctica */
+.ejemplo {
+    color: #DDD;
+}
+----
+
+.Buena Práctica
+[source,css]
+----
+/* Buena Práctica */
+.ejemplo {
+    color: #ddd;
+}
+----
+
+=== Espacios en Blanco
+No dejar espacios en blanco al final del renglón, son inútiles y pueden ocasionar problemas (p.e. al momento de la presentación con elementos en línea `display: inline-block;`).
+
+.Mala Práctica
+[source,html]
+----
+<!-- No Recomendado -->
+<p>El mejor de todos_</p>_
+----
+
+.Buena Práctica
+[source,css]
+----
+<!-- Recomendado -->
+<p>El mejor de todos</p>
+----
