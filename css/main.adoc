@@ -1,0 +1,21 @@
+= Guía de Buenas Prácticas y Recomendaciones (CSS)
+:Author:    Flkt Crnpio
+:Email:     <flkt.crnpio@gmail.com>
+:toc2:
+:toclevels: 2
+:doctype: book
+:backend: html5
+:theme: flask
+:source-highlighter: pygments
+:icons: font
+
+== Introducción
+Éste documento de texto define las reglas de estilo y formato para CSS.
+
+Su objetivo es mejorar la colaboración y la calidad del código.
+
+Ésto se aplica al código fuente, no al código que se genera usando herramientas (ofuscado, minificado o compilado).
+
+include::css_rules.adoc[]
+
+include::css_styling_rules.adoc[]

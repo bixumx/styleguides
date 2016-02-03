@@ -1,4 +1,4 @@
-= Guía de Buenas Prácticas y Recomendaciones (HTML y CSS)
+= Guía de Buenas Prácticas y Recomendaciones (HTML)
 :Author:    Ricardo Santillán
 :Email:     <rdo.santillan@gmail.com>
 :toc2:
@@ -10,7 +10,7 @@
 :icons: font
 
 == Introducción
-Éste documento de texto define las reglas de estilo y formato para HTML y CSS.
+Éste documento de texto define las reglas de estilo y formato para HTML.
 
 Su objetivo es mejorar la colaboración y la calidad del código.
 
@@ -23,7 +23,3 @@ include::format_rules.adoc[]
 include::meta_rules.adoc[]
 
 include::html_rules.adoc[]
-
-include::css_rules.adoc[]
-
-include::css_styling_rules.adoc[]
