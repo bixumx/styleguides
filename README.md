@@ -1,4 +1,4 @@
-*Guía de estilos colaborativa para el trabajo en equipos
+# Guía de estilos colaborativa para el trabajo en equipos
 
 Guías colaborativas sobre sintaxis, convenciones y estructura de aplicaciones web.
 
