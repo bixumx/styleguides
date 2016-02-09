@@ -1,0 +1,28 @@
+<snippet>
+    <content><![CDATA[(function() {
+    'use strict';
+
+    angular
+        .module('${1:module}')
+        .factory('${2:factory}WS', ${2:factory}WS);
+
+    ${2:factory}WS.\$inject = ['config', '\$resource', ${3/(\$(\w+)|\w+)/'$1'/g}];
+
+    /* @ngInject */
+    function ${2:factory}WS(config, \$resource, ${3:dependencies}) {
+        var basePath = config.api + '${4:uri}' + config.apiVersion;
+        var uriParams = '/:object/:action/:arg1/:arg2';
+        var actions = {
+            update: {
+                method: 'PUT'
+            }
+        };
+
+        return \$resource(basePath + uriParams, {}, actions);
+    }
+})();
+
+]]></content>
+    <tabTrigger>ngws</tabTrigger>
+    <scope>source.js</scope>
+</snippet>
